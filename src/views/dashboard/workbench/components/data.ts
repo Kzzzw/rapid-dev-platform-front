@@ -84,24 +84,6 @@ export const dynamicInfoItems: DynamicInfoItem[] = [
     date: '3天前',
     desc: '回复了 <a>杰克</a> 的问题 <a>如何进行项目优化？</a>',
   },
-  {
-    avatar: 'dynamic-avatar-6|svg',
-    name: '杰克',
-    date: '1周前',
-    desc: '关闭了问题 <a>如何运行项目</a> ',
-  },
-  {
-    avatar: 'dynamic-avatar-1|svg',
-    name: '威廉',
-    date: '1周前',
-    desc: '发布了 <a>个人动态</a> ',
-  },
-  {
-    avatar: 'dynamic-avatar-1|svg',
-    name: '威廉',
-    date: '2021-04-01 20:00',
-    desc: '推送了代码到 <a>Github</a>',
-  },
 ]
 
 export const groupItems: GroupItem[] = [

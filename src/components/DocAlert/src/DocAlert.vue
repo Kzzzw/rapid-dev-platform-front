@@ -51,8 +51,11 @@ export default defineComponent({
 <template>
   <Alert v-if="getEnable()" type="success" show-icon>
     <template #message>
-      <Button type="link" @click="goToUrl">
+      <!-- <Button type="link" @click="goToUrl">
         【{{ title }}】文档地址：{{ url }}
+      </Button> -->
+      <Button type="link" @click="goToUrl">
+        【{{ title }}】
       </Button>
     </template>
   </Alert>

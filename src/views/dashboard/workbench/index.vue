@@ -7,6 +7,7 @@ import QuickNav from './components/QuickNav.vue'
 import DynamicInfo from './components/DynamicInfo.vue'
 import SaleRadar from './components/SaleRadar.vue'
 import { PageWrapper } from '@/components/Page'
+import TbalePure from './components/TbalePure.vue'
 
 const loading = ref(true)
 
@@ -24,6 +25,7 @@ setTimeout(() => {
       <div class="enter-y w-full !mr-4 lg:w-7/10">
         <ProjectCard :loading="loading" class="enter-y" />
         <DynamicInfo :loading="loading" class="enter-y !my-4" />
+        <TbalePure :loading="loading" class="enter-y !my-4" />
       </div>
       <div class="enter-y w-full lg:w-3/10">
         <QuickNav :loading="loading" class="enter-y" />

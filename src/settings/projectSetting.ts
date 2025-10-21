@@ -1,8 +1,3 @@
-import { primaryColor } from '../../build/config/themeConfig'
-import { HEADER_PRESET_BG_COLOR_LIST, SIDE_BAR_BG_COLOR_LIST } from './designSetting'
-import type { ProjectConfig } from '@/types/config'
-import { MenuModeEnum, MenuTypeEnum, MixSidebarTriggerEnum, TriggerEnum } from '@/enums/menuEnum'
-import { CacheTypeEnum } from '@/enums/cacheEnum'
 import {
   ContentEnum,
   PermissionModeEnum,
@@ -11,6 +6,12 @@ import {
   SettingButtonPositionEnum,
   ThemeEnum,
 } from '@/enums/appEnum'
+import { HEADER_PRESET_BG_COLOR_LIST, SIDE_BAR_BG_COLOR_LIST } from './designSetting'
+import { MenuModeEnum, MenuTypeEnum, MixSidebarTriggerEnum, TriggerEnum } from '@/enums/menuEnum'
+
+import { CacheTypeEnum } from '@/enums/cacheEnum'
+import type { ProjectConfig } from '@/types/config'
+import { primaryColor } from '../../build/config/themeConfig'
 
 // ! 改动后需要清空浏览器缓存
 const setting: ProjectConfig = {
@@ -31,6 +32,8 @@ const setting: ProjectConfig = {
   // ROLE：前端模式（菜单路由分开）
   // BACK: 后端模式
   permissionMode: PermissionModeEnum.BACK,
+  // 本地调试
+  // permissionMode: PermissionModeEnum.ROUTE_MAPPING,
   // 权限缓存存放位置。默认存放于localStorage
   permissionCacheType: CacheTypeEnum.LOCAL,
   // 会话超时处理方案

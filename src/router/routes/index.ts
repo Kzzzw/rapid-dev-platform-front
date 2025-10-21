@@ -1,10 +1,9 @@
 import type { AppRouteModule, AppRouteRecordRaw } from '@/router/types'
-
 import { PAGE_NOT_FOUND_ROUTE, REDIRECT_ROUTE } from '@/router/routes/basic'
 
+import { LAYOUT } from '@/router/constant'
 import { PageEnum } from '@/enums/pageEnum'
 import { t } from '@/hooks/web/useI18n'
-import { LAYOUT } from '@/router/constant'
 
 // import.meta.glob() 直接引入所有的模块 Vite 独有的功能
 const modules = import.meta.glob('./modules/**/*.ts', { eager: true })
@@ -29,6 +28,7 @@ export const RootRoute: AppRouteRecordRaw = {
   },
 }
 
+// 登录
 export const LoginRoute: AppRouteRecordRaw = {
   path: '/login',
   name: 'Login',
@@ -38,6 +38,7 @@ export const LoginRoute: AppRouteRecordRaw = {
   },
 }
 
+// 第三方授权登录
 export const SSORoute: AppRouteRecordRaw = {
   path: '/sso',
   name: 'SSO',
@@ -47,6 +48,7 @@ export const SSORoute: AppRouteRecordRaw = {
   },
 }
 
+// 个人中心
 export const ProfileRoute: AppRouteRecordRaw = {
   path: '/profile',
   component: LAYOUT,
@@ -83,31 +85,7 @@ export const ProfileRoute: AppRouteRecordRaw = {
   ],
 }
 
-export const CodegenRoute: AppRouteRecordRaw = {
-  path: '/codegen',
-  component: LAYOUT,
-  name: 'CodegenEdit',
-  meta: {
-    title: '修改生成配置',
-    hidden: true,
-  },
-  children: [
-    {
-      path: 'editTable',
-      component: () => import('@/views/infra/codegen/EditTable.vue'),
-      name: 'EditTable',
-      meta: {
-        canTo: true,
-        hidden: true,
-        noTagsView: false,
-        icon: 'ant-design:edit-outlined',
-        title: '修改生成配置',
-        activeMenu: 'infra/codegen/index',
-      },
-    },
-  ],
-}
-
+// 调度日志
 export const JobLogRoute: AppRouteRecordRaw = {
   path: '/job',
   component: LAYOUT,
@@ -133,31 +111,7 @@ export const JobLogRoute: AppRouteRecordRaw = {
   ],
 }
 
-export const PayRoute: AppRouteRecordRaw = {
-  path: '/pay',
-  component: LAYOUT,
-  name: 'pay',
-  meta: {
-    title: '收银台',
-    hidden: true,
-  },
-  children: [
-    {
-      path: 'cashier',
-      component: () => import('@/views/pay/cashier/index.vue'),
-      name: 'PayCashier',
-      meta: {
-        canTo: true,
-        hidden: true,
-        noTagsView: false,
-        icon: 'ant-design:pay-circle-outlined',
-        title: '收银台',
-        activeMenu: 'pay/order/index',
-      },
-    },
-  ],
-}
-
+// 工作流
 export const BpmRoute: AppRouteRecordRaw = {
   path: '/bpm',
   component: LAYOUT,
@@ -264,14 +218,12 @@ export const BpmRoute: AppRouteRecordRaw = {
 // Basic routing without permission
 // 未经许可的基本路由
 export const basicRoutes = [
-  LoginRoute,
-  SSORoute,
-  RootRoute,
-  ProfileRoute,
-  CodegenRoute,
-  JobLogRoute,
-  PayRoute,
-  BpmRoute,
-  REDIRECT_ROUTE,
-  PAGE_NOT_FOUND_ROUTE,
+  LoginRoute,  // 登录
+  SSORoute,  // 第三方授权登录
+  RootRoute,  // 根路由
+  ProfileRoute,  // 个人中心
+  JobLogRoute,  // 调度日志
+  BpmRoute,  // 工作流
+  REDIRECT_ROUTE,  // 重定向路由
+  PAGE_NOT_FOUND_ROUTE,  // 404 路由
 ]

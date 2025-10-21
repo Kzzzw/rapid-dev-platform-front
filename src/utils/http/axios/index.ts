@@ -2,23 +2,24 @@
 // The axios configuration can be changed according to the project, just change the file, other files can be left unchanged
 
 import type { AxiosInstance, AxiosResponse } from 'axios'
-import { clone } from 'lodash-es'
-import axios from 'axios'
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
-import { VAxios } from './Axios'
-import { checkStatus } from './checkStatus'
-import { formatRequestDate, joinTimestamp } from './helper'
-import type { RequestOptions, Result } from '@/types/axios'
-import { useGlobSetting } from '@/hooks/setting'
-import { useMessage } from '@/hooks/web/useMessage'
 import { ContentTypeEnum, RequestEnum, ResultEnum } from '@/enums/httpEnum'
-import { isEmpty, isNull, isString, isUndefined } from '@/utils/is'
-import { getAccessToken, getTenantId } from '@/utils/auth'
+import type { RequestOptions, Result } from '@/types/axios'
 import { deepMerge, setObjToUrlParams } from '@/utils'
-import { useErrorLogStoreWithOut } from '@/store/modules/errorLog'
-import { useI18n } from '@/hooks/web/useI18n'
-import { useUserStoreWithOut } from '@/store/modules/user'
+import { formatRequestDate, joinTimestamp } from './helper'
+import { getAccessToken, getTenantId } from '@/utils/auth'
+import { isEmpty, isNull, isString, isUndefined } from '@/utils/is'
+
 import { AxiosRetry } from '@/utils/http/axios/axiosRetry'
+import { VAxios } from './Axios'
+import axios from 'axios'
+import { checkStatus } from './checkStatus'
+import { clone } from 'lodash-es'
+import { useErrorLogStoreWithOut } from '@/store/modules/errorLog'
+import { useGlobSetting } from '@/hooks/setting'
+import { useI18n } from '@/hooks/web/useI18n'
+import { useMessage } from '@/hooks/web/useMessage'
+import { useUserStoreWithOut } from '@/store/modules/user'
 
 const globSetting = useGlobSetting()
 const urlPrefix = globSetting.urlPrefix
@@ -60,7 +61,10 @@ const transform: AxiosTransform = {
       throw new Error(t('sys.api.apiRequestFailed'))
     }
     //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
-    const { code, data: result, msg } = data
+    // const { code, data: result, msg } = data
+    const code = data.code
+    const result = data.data
+    const msg = data.msg
     // 这里逻辑可以根据项目进行修改
     const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
     if (hasSuccess) {

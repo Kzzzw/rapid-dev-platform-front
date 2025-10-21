@@ -54,7 +54,7 @@ async function handleDelete(record: Recordable) {
 
 <template>
   <div>
-    <DocAlert title="站内信配置" url="https://doc.iocoder.cn/notify/" />
+    <!-- <DocAlert title="站内信配置" url="https://doc.iocoder.cn/notify/" /> -->
 
     <BasicTable @register="registerTable">
       <template #toolbar>

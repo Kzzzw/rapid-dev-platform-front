@@ -94,10 +94,10 @@ function handleMenuClick(e: MenuInfo) {
     <template #overlay>
       <Menu @click="handleMenuClick">
         <MenuItem key="profile" :text="t('layout.header.accountCenter')" icon="ion:person-outline" />
-        <MenuItem
+        <!-- <MenuItem
           v-if="getShowDoc" key="doc" :text="t('layout.header.dropdownItemDoc')"
           icon="ion:document-text-outline"
-        />
+        /> -->
         <MenuDivider v-if="getShowDoc" />
         <MenuItem
           v-if="getUseLockPage" key="lock" :text="t('layout.header.tooltipLock')"

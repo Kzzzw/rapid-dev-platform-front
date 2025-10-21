@@ -39,14 +39,14 @@ const getShowLayoutFooter = computed(() => {
 
 <template>
   <Footer v-if="getShowLayoutFooter" ref="footerRef" class="text-center text-[var(--normal-text)]">
-    <div class="mb-2">
+    <!-- <div class="mb-2">
       <a class="text-[var(--normal-text)] hover:text-[var(--hover-text)]" @click="openWindow(SITE_URL)">外包咨询</a>
 
       <GithubFilled class="mx-7.5 hover:text-[var(--hover-text)]" @click="openWindow(GITHUB_URL)" />
 
       <a class="text-[var(--normal-text)] hover:text-[var(--hover-text)]" @click="openWindow(DOC_URL)">{{
         t('layout.footer.onlineDocument') }}</a>
-    </div>
-    <div>Copyright &copy;2023 {{ SITE_TITLE }}</div>
+    </div> -->
+    <div>Copyright &copy;2025 {{ SITE_TITLE }}</div>
   </Footer>
 </template>

@@ -1,19 +1,16 @@
 {
-  "name": "yudao-ui-admin-vben",
-  "version": "2.4.2-snapshot",
+  "name": "rapid-dev-platform-front",
+  "version": "0.0.0",
   "author": {
-    "name": "xingyuv",
-    "email": "xingyu4j@vip.qq.com",
-    "url": "https://gitee.com/xingyuv"
+    "name": "aliyun4733848491",
+    "email": "19133400690@163.com"
   },
+  "private": true,
   "license": "MIT",
-  "homepage": "https://gitee.com/xingyuv",
+  "homepage": "https://codeup.aliyun.com/supertech/foundation/rapid-dev-platform-front",
   "repository": {
     "type": "git",
-    "url": "git+https://gitee.com/xingyuv/vue-vben-admin.git"
-  },
-  "bugs": {
-    "url": "https://gitee.com/xingyuv/issues"
+    "url": "git+https://codeup.aliyun.com/supertech/foundation/rapid-dev-platform-front.git"
   },
   "engines": {
     "node": "^18.0.0 || >=20.0.0",
@@ -24,10 +21,8 @@
     "bootstrap": "pnpm install",
     "serve": "pnpm dev",
     "dev": "vite",
-    "front": "vite --mode front",
     "build": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=8192 vite build && esno ./build/script/postBuild.ts",
     "build:test": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build --mode test && esno ./build/script/postBuild.ts",
-    "build:static": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build --mode static && esno ./build/script/postBuild.ts",
     "build:no-cache": "pnpm store prune && pnpm build",
     "report": "cross-env REPORT=true pnpm build",
     "type:check": "vue-tsc --noEmit --skipLibCheck",
@@ -46,9 +41,6 @@
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
     "@ant-design/icons-vue": "^7.0.1",
-    "@builder.io/dev-tools": "^1.14.4",
-    "@builder.io/sdk": "^6.1.2",
-    "@builder.io/vue": "^0.1.12",
     "@iconify/iconify": "^3.1.1",
     "@videojs-player/vue": "^1.0.0",
     "@vue/runtime-core": "^3.3.8",
@@ -131,6 +123,7 @@
     "terser": "^5.24.0",
     "typescript": "^5.2.2",
     "unocss": "^0.57.3",
+    "unplugin-vue-components": "^29.1.0",
     "vite": "^4.5.0",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-mkcert": "^1.16.0",

@@ -6,7 +6,7 @@ import type { RouteItem } from './menuModel'
 export interface LoginParams {
   username: string
   password: string
-  captchaVerification: string
+  captchaVerification: string,
 }
 
 /**

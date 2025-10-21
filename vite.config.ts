@@ -1,14 +1,16 @@
-import { resolve } from 'node:path'
 import type { ConfigEnv, UserConfig } from 'vite'
+import { exclude, include } from './build/vite/optimize'
+
+import Components from 'unplugin-vue-components/vite'
+import { OUTPUT_DIR } from './build/constant'
+import { createProxy } from './build/vite/proxy'
+import { createVitePlugins } from './build/vite/plugin'
 import dayjs from 'dayjs'
+import { generateModifyVars } from './build/generate/generateModifyVars'
 import { loadEnv } from 'vite'
 import pkg from './package.json'
-import { generateModifyVars } from './build/generate/generateModifyVars'
-import { createProxy } from './build/vite/proxy'
+import { resolve } from 'node:path'
 import { wrapperEnv } from './build/utils'
-import { createVitePlugins } from './build/vite/plugin'
-import { OUTPUT_DIR } from './build/constant'
-import { exclude, include } from './build/vite/optimize'
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir)
@@ -92,7 +94,15 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
 
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
-    plugins: createVitePlugins(viteEnv, isBuild),
+    plugins: [
+      ...createVitePlugins(viteEnv, isBuild),
+      Components({
+        dirs: ['src/components'], // 扫描该目录
+        dts: 'src/components.d.ts',
+        extensions: ['vue'],
+        deep: true,
+      }),
+    ],
 
     optimizeDeps: { include, exclude },
   }

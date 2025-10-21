@@ -40,7 +40,7 @@ const getIsFixedSettingDrawer = computed(() => {
 
 <template>
   <LayoutLockPage />
-  <FloatButton.BackTop v-if="getUseOpenBackTop" :target="getTarget" />
+  <!-- <FloatButton.BackTop v-if="getUseOpenBackTop" :target="getTarget" />
   <FloatButton
     shape="circle"
     type="primary"
@@ -56,5 +56,5 @@ const getIsFixedSettingDrawer = computed(() => {
     v-if="getIsFixedSettingDrawer"
     class="absolute top-[45%] z-10 flex cursor-pointer items-center justify-items-center rounded-l-md rounded-r-none p-2.5"
   />
-  <SessionTimeoutLogin v-if="getIsSessionTimeout" />
+  <SessionTimeoutLogin v-if="getIsSessionTimeout" /> -->
 </template>

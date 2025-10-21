@@ -1,23 +1,22 @@
-/* eslint-disable no-case-declarations */
-import { toRaw } from 'vue'
-import { defineStore } from 'pinia'
-
-import { useUserStore } from './user'
-import { useAppStoreWithOut } from './app'
-import { store } from '@/store'
 import type { AppRouteRecordRaw, Menu } from '@/router/types'
-import { asyncRoutes } from '@/router/routes'
-import about from '@/router/routes/modules/about'
-import dashboard from '@/router/routes/modules/dashboard'
-import { PAGE_NOT_FOUND_ROUTE } from '@/router/routes/basic'
-import { transformRouteToMenu } from '@/router/helper/menuHelper'
 import { flatMultiLevelRoutes, transformObjToRoute } from '@/router/helper/routeHelper'
-import { useI18n } from '@/hooks/web/useI18n'
-import { useMessage } from '@/hooks/web/useMessage'
-import { filter } from '@/utils/helper/treeHelper'
-import projectSetting from '@/settings/projectSetting'
+
+import { PAGE_NOT_FOUND_ROUTE } from '@/router/routes/basic'
 import { PageEnum } from '@/enums/pageEnum'
 import { PermissionModeEnum } from '@/enums/appEnum'
+import { asyncRoutes } from '@/router/routes'
+import dashboard from '@/router/routes/modules/dashboard'
+import { defineStore } from 'pinia'
+import { filter } from '@/utils/helper/treeHelper'
+import projectSetting from '@/settings/projectSetting'
+import { store } from '@/store'
+/* eslint-disable no-case-declarations */
+import { toRaw } from 'vue'
+import { transformRouteToMenu } from '@/router/helper/menuHelper'
+import { useAppStoreWithOut } from './app'
+import { useI18n } from '@/hooks/web/useI18n'
+import { useMessage } from '@/hooks/web/useMessage'
+import { useUserStore } from './user'
 
 interface PermissionState {
   // Permission code list
@@ -226,14 +225,14 @@ export const usePermissionStore = defineStore('app-permission', {
           routeList = transformObjToRoute(routeList)
           //  Background routing to menu structure
           //  后台路由到菜单结构
-          const backMenuList = transformRouteToMenu([dashboard, ...routeList, about])
+          const backMenuList = transformRouteToMenu([dashboard, ...routeList])
           this.setBackMenuList(backMenuList)
           // remove meta.ignoreRoute item
           // 删除 meta.ignoreRoute 项
           routeList = filter(routeList, routeRemoveIgnoreFilter)
           routeList = routeList.filter(routeRemoveIgnoreFilter)
           routeList = flatMultiLevelRoutes(routeList)
-          routes = [PAGE_NOT_FOUND_ROUTE, dashboard, ...routeList, about]
+          routes = [PAGE_NOT_FOUND_ROUTE, dashboard, ...routeList]
           break
       }
 

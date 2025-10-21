@@ -81,16 +81,16 @@
     "registerButton": "注册",
     "rememberMe": "记住我",
     "scanSign": "扫码后点击\"确认\"，即可完成登录",
-    "signInDesc": "输入您的个人详细信息开始使用！",
+    "signInDesc": "",
     "signInFormTitle": "登录",
-    "signInTitle": "开箱即用的中后台管理系统",
+    "signInTitle": "欢迎登录",
     "signUpFormTitle": "注册",
     "smsCode": "短信验证码",
     "smsPlaceholder": "请输入验证码",
     "ssoEditDesc": "修改您的个人详细信息开始使用！",
     "ssoInfoDesc": "访问您的个人详细信息开始使用！",
     "ssoSignInFormTitle": "三方授权登录",
-    "tenantName": "租户",
+    "tenantName": "一体化",
     "userName": "账号"
   }
 }

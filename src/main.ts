@@ -1,21 +1,24 @@
 import 'uno.css'
 import 'ant-design-vue/dist/reset.css'
 import './design/index.less'
-
+import '@/assets/fonts/iconfont.css'
 // Register icon sprite
 import 'virtual:svg-icons-register'
-import { createApp } from 'vue'
-import App from './App.vue'
-import { initAppConfigStore } from '@/logics/initAppConfig'
-import { setupErrorHandle } from '@/logics/error-handle'
+import 'ant-design-vue/dist/reset.css'
+import '@/utils/tongji'
+
 import { router, setupRouter } from '@/router'
-import { setupRouterGuard } from '@/router/guard'
-import { setupStore } from '@/store'
+
+import Antd from 'ant-design-vue'
+import App from './App.vue'
+import { createApp } from 'vue'
+import { initAppConfigStore } from '@/logics/initAppConfig'
+import { registerGlobComp } from '@/components/registerGlobComp'
+import { setupErrorHandle } from '@/logics/error-handle'
 import { setupGlobDirectives } from '@/directives'
 import { setupI18n } from '@/locales/setupI18n'
-import { registerGlobComp } from '@/components/registerGlobComp'
-
-import '@/utils/tongji'
+import { setupRouterGuard } from '@/router/guard'
+import { setupStore } from '@/store'
 
 async function bootstrap() {
   const app = createApp(App)
@@ -56,8 +59,9 @@ async function bootstrap() {
 
   // https://next.router.vuejs.org/api/#isready
   // await router.isReady();
-
+  app.use(Antd)
   app.mount('#app')
+
 }
 
 bootstrap()
